@@ -9,6 +9,13 @@ const StyledLink = styled.a`
   display: inline-block;
   padding: 0.8rem 2.8rem;
   text-decoration: none;
+  transition: all 0.3s ease;
+
+  &:hover,
+  &:focus {
+    background: ${props => props.theme.colors.primaryDark};
+    color: #fff;
+  }
 `
 
 const ButtonLink = ({ text, to }) => <StyledLink href={to}>{text}</StyledLink>

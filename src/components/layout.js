@@ -20,6 +20,9 @@ const GlobalStyles = createGlobalStyle`
     font-weight: normal;
     line-height: 1.5;
   }
+  a:focus, button:focus {
+    outline: 2px solid ${props => props.theme.colors.focusBorder};
+  }
 `
 
 const theme = {
@@ -30,6 +33,7 @@ const theme = {
     secondaryDark: "#5A5052",
     secondaryMedium: "#BBBBBB",
     secondaryLight: "#DCDCDC",
+    focusBorder: "#7a2d39",
   },
 }
 
@@ -38,6 +42,11 @@ const LayoutContainer = styled.main`
   max-width: 960px;
   min-height: calc(100vh - 1.0875rem - 5rem);
   padding: 5rem 1.0875rem;
+
+  @media (min-width: 1024px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 `
 
 const Footer = styled.footer`
