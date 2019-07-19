@@ -27,7 +27,8 @@ const GlobalStyles = createGlobalStyle`
 
 const theme = {
   colors: {
-    primaryDark: "#B86B77",
+    // primaryDark: "#B86B77",
+    primaryDark: "#AF5A65",
     primaryMedium: "#DEBDC2",
     primaryLight: "#E9DCDE",
     secondaryDark: "#5A5052",
@@ -40,7 +41,7 @@ const theme = {
 const LayoutContainer = styled.main`
   margin: 0 auto;
   max-width: 960px;
-  min-height: calc(100vh - 1.0875rem - 5rem);
+  min-height: calc(100vh - 1.0875rem - 5rem + 1rem);
   padding: 5rem 1.0875rem;
 
   @media (min-width: 1024px) {
