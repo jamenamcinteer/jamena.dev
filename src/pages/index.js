@@ -80,13 +80,13 @@ const IndexPage = () => {
       <Links>
         <LinkContainer>
           <SocialMediaLink>
-            <Twitter />
+            <Twitter href="https://twitter.com/JamenaMcinteer" />
             <span>Twitter</span>
           </SocialMediaLink>
         </LinkContainer>
         <LinkContainer>
           <SocialMediaLink>
-            <Github />
+            <Github href="https://github.com/ndjamenamarmon" />
             <span>GitHub</span>
           </SocialMediaLink>
         </LinkContainer>
