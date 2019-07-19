@@ -6,6 +6,11 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import CareText from "../components/careText"
 import Image from "../components/image"
+import ButtonLink from "../components/buttonA"
+
+import Twitter from "../images/twitter.svg"
+import Github from "../images/github.svg"
+import Linkedin from "../images/linkedin.svg"
 
 const StyledName = styled.span`
   color: ${props => props.theme.colors.primaryDark};
@@ -21,6 +26,25 @@ const SplashText = styled.p`
     display: inline-block;
     padding-left: 0.3125rem;
     padding-right: 0.3125rem;
+  }
+`
+
+const Links = styled.div`
+  padding-top: 1rem;
+`
+const LinkContainer = styled.div`
+  text-align: center;
+`
+
+const SocialMediaLink = styled.a`
+  align-items: center;
+  display: inline-flex;
+  padding: 0.625rem;
+
+  span {
+    color: ${props => props.theme.colors.primaryDark};
+    margin-left: 0.625rem;
+    text-decoration: underline;
   }
 `
 
@@ -42,10 +66,37 @@ const IndexPage = () => {
       <SplashText>
         I care deeply about <CareText />.
       </SplashText>
-      <div>
+      <div style={{ maxWidth: "460px", margin: "0 auto" }}>
         <Image />
       </div>
-      {/* <Link to="/page-2/">Go to page 2</Link> */}
+      <Links>
+        <LinkContainer>
+          <ButtonLink
+            to="https://lipstickwineandheels.com"
+            text="Read My Blog"
+          />
+        </LinkContainer>
+      </Links>
+      <Links>
+        <LinkContainer>
+          <SocialMediaLink>
+            <Twitter />
+            <span>Twitter</span>
+          </SocialMediaLink>
+        </LinkContainer>
+        <LinkContainer>
+          <SocialMediaLink>
+            <Github />
+            <span>GitHub</span>
+          </SocialMediaLink>
+        </LinkContainer>
+        <LinkContainer>
+          <SocialMediaLink>
+            <Linkedin />
+            <span>LinkedIn</span>
+          </SocialMediaLink>
+        </LinkContainer>
+      </Links>
     </Layout>
   )
 }

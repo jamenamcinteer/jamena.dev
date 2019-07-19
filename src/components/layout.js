@@ -37,8 +37,7 @@ const LayoutContainer = styled.main`
   margin: 0 auto;
   max-width: 960px;
   min-height: calc(100vh - 1.0875rem - 5rem);
-  padding: 1.0875rem;
-  padding-top: 5rem;
+  padding: 5rem 1.0875rem;
 `
 
 const Footer = styled.footer`

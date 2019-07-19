@@ -62,7 +62,7 @@ const CareText = () => {
   }
 
   useEffect(() => {
-    // let i = 0
+    let i = 0
     const interval = setInterval(() => {
       callUntype(careIndex)
       setTimeout(() => {
@@ -71,8 +71,8 @@ const CareText = () => {
         )
         setCareChanged(true)
       }, 1000)
-      // i++
-      // if (i === careArr.length - 1) clearInterval(interval)
+      i++
+      if (i === careArr.length * 3 - 1) clearInterval(interval)
     }, 6000)
 
     return () => clearInterval(interval)
