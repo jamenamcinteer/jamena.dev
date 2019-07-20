@@ -5,8 +5,8 @@ import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import CareText from "../components/careText"
-import Image from "../components/image"
 import ButtonLink from "../components/buttonA"
+import SVG from "../images/splash.svg"
 
 import Twitter from "../images/twitter.svg"
 import Github from "../images/github.svg"
@@ -104,7 +104,7 @@ const IndexPage = () => {
         </SplashLeft>
         <SplashRight>
           <div style={{ maxWidth: "460px", margin: "0 auto" }}>
-            <Image />
+            <SVG />
           </div>
         </SplashRight>
       </Splash>
