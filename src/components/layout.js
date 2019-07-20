@@ -34,7 +34,8 @@ const theme = {
     secondaryDark: "#5A5052",
     secondaryMedium: "#BBBBBB",
     secondaryLight: "#DCDCDC",
-    focusBorder: "#7a2d39",
+    // focusBorder: "#7a2d39",
+    focusBorder: "#91BA8D",
   },
 }
 
