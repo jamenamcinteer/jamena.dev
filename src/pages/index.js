@@ -4,13 +4,20 @@ import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import CareText from "../components/careText"
+// import CareText from "../components/careText"
 import ButtonLink from "../components/buttonA"
 import SVG from "../images/splash.svg"
 
 import Twitter from "../images/twitter.svg"
 import Github from "../images/github.svg"
 import Linkedin from "../images/linkedin.svg"
+
+import Sketch from "../images/sketch.svg"
+import Accessibility from "../images/accessibility.svg"
+import Code from "../images/code.svg"
+import Performance from "../images/performance.svg"
+import Teamwork from "../images/teamwork.svg"
+import Learning from "../images/learning.svg"
 
 const Splash = styled.div`
   @media (min-width: 1024px) {
@@ -40,14 +47,58 @@ const SplashText = styled.p`
   }
 `
 
+const PageSection = styled.div`
+  margin: 4rem 0;
+`
+
+const PageSectionHeader = styled.h2`
+  font-size: 1.75rem;
+  font-weight: normal;
+  text-align: center;
+`
+
+const IconGrid = styled.div`
+  max-width: 760px;
+  margin: 0 auto;
+  margin-top: 3rem;
+
+  @media (min-width: 568px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    grid-gap: 2rem 5rem;
+  }
+`
+
+const Icon = styled.div`
+  font-size: .9rem;
+  margin-bottom: 2rem;
+  text-align: center;
+
+  @media (min-width: 568px) {
+    margin-bottom: 0;
+  }
+`
+
 const Links = styled.div`
   padding-top: 1rem;
+  padding-bottom: 1rem;
+  text-align: ${props => (props.socialmedia ? "center" : "left")};
 
   @media (min-width: 1024px) {
     padding-top: ${props => (props.socialmedia ? "2rem" : "1rem")};
     margin-left: ${props => (props.socialmedia ? "-0.625rem" : 0)};
   }
 `
+
 const LinkContainer = styled.div`
   text-align: center;
 
@@ -55,6 +106,15 @@ const LinkContainer = styled.div`
     display: inline;
     padding-right: 2rem;
     text-align: left;
+  }
+`
+
+const SocialLinkContainer = styled.div`
+  text-align: center;
+
+  @media (min-width: 1024px) {
+    display: inline;
+    padding-right: 2rem;
   }
 `
 
@@ -98,9 +158,17 @@ const IndexPage = () => {
             I like to build <em>beautiful things</em> that{" "}
             <em>make a difference</em>.
           </SplashText>
-          <SplashText style={{ minHeight: "5rem" }}>
+          <Links>
+            <LinkContainer>
+              <ButtonLink
+                to="https://lipstickwineandheels.com"
+                text="Read My Blog"
+              />
+            </LinkContainer>
+          </Links>
+          {/* <SplashText style={{ minHeight: "5rem" }}>
             I care deeply about <CareText />.
-          </SplashText>
+          </SplashText> */}
         </SplashLeft>
         <SplashRight>
           <div style={{ maxWidth: "460px", margin: "0 auto" }}>
@@ -108,33 +176,56 @@ const IndexPage = () => {
           </div>
         </SplashRight>
       </Splash>
-      <Links>
-        <LinkContainer>
-          <ButtonLink
-            to="https://lipstickwineandheels.com"
-            text="Read My Blog"
-          />
-        </LinkContainer>
-      </Links>
+
+      <PageSection>
+        <PageSectionHeader>I care deeply about...</PageSectionHeader>
+        <IconGrid>
+          <Icon>
+            <Sketch />
+            <p>Beautiful, functional user experiences.</p>
+          </Icon>
+          <Icon>
+            <Accessibility />
+            <p>Accessibility and inclusion</p>
+          </Icon>
+          <Icon>
+            <Code />
+            <p>Clear, efficient code</p>
+          </Icon>
+          <Icon>
+            <Performance />
+            <p>Security and performance</p>
+          </Icon>
+          <Icon>
+            <Teamwork />
+            <p>Teamwork and communication</p>
+          </Icon>
+          <Icon>
+            <Learning />
+            <p>Lifelong learning</p>
+          </Icon>
+        </IconGrid>
+      </PageSection>
+      
       <Links socialmedia>
-        <LinkContainer>
+        <SocialLinkContainer>
           <SocialMediaLink href="https://twitter.com/JamenaMcinteer">
             <Twitter />
             <span>Twitter</span>
           </SocialMediaLink>
-        </LinkContainer>
-        <LinkContainer>
-          <SocialMediaLink href="https://github.com/ndjamenamarmon">
+        </SocialLinkContainer>
+        <SocialLinkContainer>
+          <SocialMediaLink href="https://github.com/jamenamcinteer">
             <Github />
             <span>GitHub</span>
           </SocialMediaLink>
-        </LinkContainer>
-        <LinkContainer>
+        </SocialLinkContainer>
+        <SocialLinkContainer>
           <SocialMediaLink href="https://www.linkedin.com/in/jamena-mcinteer-5511aa45/">
             <Linkedin />
             <span>LinkedIn</span>
           </SocialMediaLink>
-        </LinkContainer>
+        </SocialLinkContainer>
       </Links>
     </Layout>
   )
