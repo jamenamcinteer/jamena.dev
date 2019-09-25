@@ -20,6 +20,8 @@ import Teamwork from "../images/teamwork.svg"
 import Learning from "../images/learning.svg"
 
 const Splash = styled.div`
+  margin-top: 4rem;
+
   @media (min-width: 1024px) {
     display: grid;
     grid-template-columns: 1fr 1fr;

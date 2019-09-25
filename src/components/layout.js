@@ -15,17 +15,6 @@ import { ThemeProvider, createGlobalStyle } from "styled-components"
 // import Header from "./header"
 import "./layout.css"
 
-const GlobalStyles = createGlobalStyle`
-  h1 {
-    font-size: 1.75rem;
-    font-weight: normal;
-    line-height: 1.5;
-  }
-  a:focus, button:focus {
-    outline: 2px solid ${props => props.theme.colors.focusBorder};
-  }
-`
-
 const theme = {
   colors: {
     // primaryDark: "#B86B77",
@@ -39,6 +28,24 @@ const theme = {
     focusBorder: "#91BA8D",
   },
 }
+
+const GlobalStyles = createGlobalStyle`
+  h1 {
+    font-size: 1.75rem;
+    font-weight: normal;
+    line-height: 1.5;
+  }
+  a {
+    color: ${theme.colors.primaryDark};
+
+    &:hover {
+      color: ${theme.colors.secondaryDark};
+    }
+  }
+  a:focus, button:focus {
+    outline: 2px solid ${props => props.theme.colors.focusBorder};
+  }
+`
 
 const HeaderContainer = styled.header`
   max-width: 960px;
@@ -68,6 +75,7 @@ const MenuList = styled.ul`
     text-decoration: none;
 
     &:hover {
+      border-bottom: 2px solid ${theme.colors.primaryDark};
       color: ${theme.colors.primaryDark};
     }
   }

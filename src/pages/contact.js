@@ -107,8 +107,6 @@ const ContactPage = () => {
 
           <label htmlFor="message">Message</label>
           <Textarea id="message" name="_message"></Textarea>
-          
-          <input type="text" name="__gotcha" style={{display: "none"}} />
 
           <Button text="Send" />
         </Form>

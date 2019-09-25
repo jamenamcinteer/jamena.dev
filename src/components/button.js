@@ -4,9 +4,10 @@ import React from "react"
 import styled from "styled-components"
 
 const StyledButton = styled.button`
-  background: #fff;
+  background: ${props => props.type === "primary" ? props.theme.colors.primaryDark : "#fff"};
   border: 1px solid ${props => props.theme.colors.primaryDark};
-  color: ${props => props.theme.colors.primaryDark};
+  color: ${props => props.type === "primary" ? "#fff" : props.theme.colors.primaryDark};
+  cursor: pointer;
   display: inline-block;
   padding: 0.8rem 2.8rem;
   text-decoration: none;
@@ -14,19 +15,21 @@ const StyledButton = styled.button`
 
   &:hover,
   &:focus {
-    background: ${props => props.theme.colors.primaryDark};
-    color: #fff;
+    background: ${props => props.type === "primary" ? "#fff" : props.theme.colors.primaryDark};
+    color: ${props => props.type === "primary" ? props.theme.colors.primaryDark : "#fff"};
   }
 `
 
-const Button = ({ text, to }) => <StyledButton>{text}</StyledButton>
+const Button = ({ text, type }) => <StyledButton type={type}>{text}</StyledButton>
 
 Button.propTypes = {
-  text: PropTypes.string
+  text: PropTypes.string,
+  type: PropTypes.string
 }
 
 Button.defaultProps = {
-  text: ``
+  text: ``,
+  type: 'primary'
 }
 
 export default Button
