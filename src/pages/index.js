@@ -5,7 +5,7 @@ import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 // import CareText from "../components/careText"
-import ButtonLink from "../components/buttonA"
+import ButtonLink from "../components/buttonLink"
 import SVG from "../images/splash.svg"
 
 import Twitter from "../images/twitter.svg"
@@ -163,7 +163,7 @@ const IndexPage = () => {
           <Links>
             <LinkContainer>
               <ButtonLink
-                to="https://lipstickwineandheels.com"
+                to="/writing"
                 text="Read My Blog"
               />
             </LinkContainer>
@@ -184,7 +184,7 @@ const IndexPage = () => {
         <IconGrid>
           <Icon>
             <Sketch />
-            <p>Beautiful, functional user experiences.</p>
+            <p>Beautiful, functional user experiences</p>
           </Icon>
           <Icon>
             <Accessibility />

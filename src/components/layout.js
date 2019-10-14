@@ -126,6 +126,7 @@ const Layout = ({ children }) => {
         <HeaderContainer>
           <MenuList>
             <li><Link to="/" activeClassName="active">Home</Link></li>
+            <li><Link to="/writing" activeClassName="active">Writing</Link></li>
             <li><Link to="/talks" activeClassName="active">Talks</Link></li>
             <li><Link to="/contact" activeClassName="active">Contact</Link></li>
           </MenuList>
