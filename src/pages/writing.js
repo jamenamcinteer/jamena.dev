@@ -4,7 +4,6 @@ import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Button from "../components/button"
 import ButtonLink from "../components/buttonA"
 import ArticlePreview from '../components/article-preview'
 
@@ -65,30 +64,6 @@ const SocialMediaLink = styled.a`
   }
 `
 
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-`
-
-const Input = styled.input`
-  margin-bottom: 1rem;
-
-  &:focus {
-    border: 2px solid ${props => props.theme.colors.focusBorder};
-    outline: 0;
-  }
-`
-
-const Textarea = styled.textarea`
-  height: 10rem;
-  margin-bottom: 1rem;
-
-  &:focus {
-    border: 2px solid ${props => props.theme.colors.focusBorder};
-    outline: 0;
-  }
-`
-
 const ArticleWrapper = styled.div`
   border-left: 1px solid ${props => props.theme.colors.primaryMedium};
   /* margin-left: -1.45rem; */
@@ -100,12 +75,7 @@ const ArticleList = styled.ul`
 `
 
 const BlogPage = (props) => {
-  console.log(props.data.allContentfulBlog.edges)
-
-  // const posts = get(this, 'props.data.allContentfulBlog.edges')
   const posts = props.data.allContentfulBlog.edges;
-  let postCount = 0
-
   return (
     <Layout>
       <SEO title="Writing" />
@@ -118,13 +88,13 @@ const BlogPage = (props) => {
               {posts.map(node => {
                 node = node.node ? node.node : node
                 if (new Date() >= new Date(node.date)) {
-                  postCount++
                   return (
                     <li key={node.slug}>
                       <ArticlePreview article={node} />
                     </li>
                   )
                 }
+                return false
               })}
             </ArticleList>
           </ArticleWrapper>
@@ -177,28 +147,9 @@ export const pageQuery = graphql`
             slug
           }
           date(formatString: "MMMM D, YYYY")
-          # postContent {
-          #   postContent
-          # }
-          # postContent {
-            # childMarkdownRemark {
-            #   html
-            # }
-          # }
-          postImage {
-            sizes(maxWidth: 960, maxHeight: 600, resizingBehavior: CROP) {
-              ...GatsbyContentfulSizes
-            }
-            title
-          }
           description {
             description
           }
-          # description {
-            # childMarkdownRemark {
-            #   html
-            # }
-          # }
         }
       }
     }
