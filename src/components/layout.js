@@ -47,8 +47,19 @@ const HeaderContainer = styled.header`
   max-width: 960px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  padding: 0 1.0875rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  @media (min-width: 1024px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 `
 
 const MenuList = styled.ul`
