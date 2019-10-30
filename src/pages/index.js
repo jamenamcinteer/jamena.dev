@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 // import { Link } from "gatsby"
 import styled from "styled-components"
 
@@ -147,11 +147,20 @@ const SocialMediaLink = styled.a`
 `
 
 const IndexPage = () => {
-  const storedMode = localStorage.getItem("isDarkMode");
-  const [isDarkMode, setIsDarkMode] = useState(
-    storedMode === "true" ? true : false
-  );
-  const theme = isDarkMode ? darkTheme : lightTheme
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [theme, setTheme] = useState(isDarkMode ? darkTheme : lightTheme)
+  useEffect(() => {
+    const storedMode = localStorage.getItem("isDarkMode");
+    console.log(storedMode)
+    if(storedMode === "true") {
+      setIsDarkMode(true)
+      setTheme(darkTheme)
+    }
+    else {
+      setIsDarkMode(false)
+      setTheme(lightTheme)
+    }
+  })
   return (
     <Layout>
       <SEO title="Home" />

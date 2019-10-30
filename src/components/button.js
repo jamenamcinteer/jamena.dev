@@ -9,7 +9,7 @@ const StyledButton = styled.button`
   color: ${props => props.type === "primary" ? props.theme.colors.background : props.theme.colors.primaryDark};
   cursor: pointer;
   display: inline-block;
-  padding: 0.8rem 2.8rem;
+  padding: ${props => props.compact ? "0.2rem 0.4rem" : "0.8rem 2.8rem"};
   text-decoration: none;
   transition: all 0.3s ease;
 
@@ -20,16 +20,18 @@ const StyledButton = styled.button`
   }
 `
 
-const Button = ({ text, type }) => <StyledButton type={type}>{text}</StyledButton>
+const Button = ({ text, type, compact, onClick }) => <StyledButton type={type} compact={compact} onClick={onClick}>{text}</StyledButton>
 
 Button.propTypes = {
   text: PropTypes.string,
-  type: PropTypes.string
+  type: PropTypes.string,
+  compact: PropTypes.bool
 }
 
 Button.defaultProps = {
   text: ``,
-  type: 'primary'
+  type: 'primary',
+  compact: false
 }
 
 export default Button

@@ -11,6 +11,7 @@ import PropTypes from "prop-types"
 // import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { ThemeProvider, createGlobalStyle } from "styled-components"
+import Button from "./button"
 
 // import Header from "./header"
 import "./layout.css"
@@ -56,6 +57,9 @@ const GlobalStyles = createGlobalStyle`
 const HeaderContainer = styled.header`
   max-width: 960px;
   margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `
 
 const MenuList = styled.ul`
@@ -113,7 +117,7 @@ const Footer = styled.footer`
   }
 `
 
-const Layout = ({ children }) => {
+const Layout = ({children}) => {
   // const data = useStaticQuery(graphql`
   //   query SiteTitleQuery {
   //     site {
@@ -123,6 +127,7 @@ const Layout = ({ children }) => {
   //     }
   //   }
   // `)
+  
   const storedMode = localStorage.getItem("isDarkMode");
   const [isDarkMode, setIsDarkMode] = useState(
     storedMode === "true" ? true : false
@@ -140,15 +145,17 @@ const Layout = ({ children }) => {
             <li><Link to="/talks" activeClassName="active">Talks</Link></li>
             <li><Link to="/contact" activeClassName="active">Contact</Link></li>
           </MenuList>
-        </HeaderContainer>
-        <button
+          <Button
             onClick={() => {
               setIsDarkMode(!isDarkMode);
               localStorage.setItem("isDarkMode", !isDarkMode);
+              console.log('clicked')
             }}
-          >
-            Toggle Dark Mode
-        </button>
+            type="secondary"
+            compact={true}
+            text={isDarkMode ? "Light Mode" : "Dark Mode"}
+          />
+        </HeaderContainer>
         <LayoutContainer>{children}</LayoutContainer>
         <Footer>
           © {new Date().getFullYear()}. All Rights Reserved.
