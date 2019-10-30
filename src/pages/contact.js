@@ -70,6 +70,8 @@ const Form = styled.form`
 
 const Input = styled.input`
   margin-bottom: 1rem;
+  background-color: ${props => props.theme.colors.primaryLight};
+  border: 2px solid ${props => props.theme.colors.primaryLight};
 
   &:focus {
     border: 2px solid ${props => props.theme.colors.focusBorder};
@@ -80,6 +82,8 @@ const Input = styled.input`
 const Textarea = styled.textarea`
   height: 10rem;
   margin-bottom: 1rem;
+  background-color: ${props => props.theme.colors.primaryLight};
+  border: 2px solid ${props => props.theme.colors.primaryLight};
 
   &:focus {
     border: 2px solid ${props => props.theme.colors.focusBorder};

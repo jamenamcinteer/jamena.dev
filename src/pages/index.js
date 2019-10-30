@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 // import { Link } from "gatsby"
 import styled from "styled-components"
 
@@ -8,16 +8,19 @@ import SEO from "../components/seo"
 import ButtonLink from "../components/buttonLink"
 import SVG from "../images/splash.svg"
 
-import Twitter from "../images/twitter.svg"
-import Github from "../images/github.svg"
-import Linkedin from "../images/linkedin.svg"
+import Twitter from "../components/svg/twitter"
+import Github from "../components/svg/github"
+import Linkedin from "../components/svg/linkedin"
 
-import Sketch from "../images/sketch.svg"
-import Accessibility from "../images/accessibility.svg"
-import Code from "../images/code.svg"
-import Performance from "../images/performance.svg"
-import Teamwork from "../images/teamwork.svg"
-import Learning from "../images/learning.svg"
+import Sketch from "../components/svg/sketch"
+import Accessibility from "../components/svg/accessibility"
+import Code from "../components/svg/code"
+import Performance from "../components/svg/performance"
+import Teamwork from "../components/svg/teamwork"
+import Learning from "../components/svg/learning"
+
+import lightTheme from "../themes/light"
+import darkTheme from "../themes/dark"
 
 const Splash = styled.div`
   margin-top: 4rem;
@@ -144,6 +147,11 @@ const SocialMediaLink = styled.a`
 `
 
 const IndexPage = () => {
+  const storedMode = localStorage.getItem("isDarkMode");
+  const [isDarkMode, setIsDarkMode] = useState(
+    storedMode === "true" ? true : false
+  );
+  const theme = isDarkMode ? darkTheme : lightTheme
   return (
     <Layout>
       <SEO title="Home" />
@@ -183,27 +191,27 @@ const IndexPage = () => {
         <PageSectionHeader>I care deeply about...</PageSectionHeader>
         <IconGrid>
           <Icon>
-            <Sketch />
+            <Sketch c1={theme.colors.svgIcons} />
             <p>Beautiful, functional user experiences</p>
           </Icon>
           <Icon>
-            <Accessibility />
+            <Accessibility c1={theme.colors.svgIcons} />
             <p>Accessibility and inclusion</p>
           </Icon>
           <Icon>
-            <Code />
+            <Code c1={theme.colors.svgIcons} />
             <p>Clear, efficient code</p>
           </Icon>
           <Icon>
-            <Performance />
+            <Performance c1={theme.colors.svgIcons} />
             <p>Security and performance</p>
           </Icon>
           <Icon>
-            <Teamwork />
+            <Teamwork c1={theme.colors.svgIcons} />
             <p>Teamwork and communication</p>
           </Icon>
           <Icon>
-            <Learning />
+            <Learning c1={theme.colors.svgIcons} />
             <p>Lifelong learning</p>
           </Icon>
         </IconGrid>
@@ -212,19 +220,19 @@ const IndexPage = () => {
       <Links socialmedia>
         <SocialLinkContainer>
           <SocialMediaLink href="https://twitter.com/JamenaMcinteer">
-            <Twitter />
+            <Twitter c1={theme.colors.svgIcons} />
             <span>Twitter</span>
           </SocialMediaLink>
         </SocialLinkContainer>
         <SocialLinkContainer>
           <SocialMediaLink href="https://github.com/jamenamcinteer">
-            <Github />
+            <Github c1={theme.colors.svgIcons} />
             <span>GitHub</span>
           </SocialMediaLink>
         </SocialLinkContainer>
         <SocialLinkContainer>
           <SocialMediaLink href="https://www.linkedin.com/in/jamena-mcinteer-5511aa45/">
-            <Linkedin />
+            <Linkedin c1={theme.colors.svgIcons} />
             <span>LinkedIn</span>
           </SocialMediaLink>
         </SocialLinkContainer>

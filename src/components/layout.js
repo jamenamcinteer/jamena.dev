@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby";
 import PropTypes from "prop-types"
 // import { useStaticQuery, graphql } from "gatsby"
@@ -14,32 +14,38 @@ import { ThemeProvider, createGlobalStyle } from "styled-components"
 
 // import Header from "./header"
 import "./layout.css"
+import lightTheme from "../themes/light"
+import darkTheme from "../themes/dark"
 
-const theme = {
-  colors: {
-    // primaryDark: "#B86B77",
-    primaryDark: "#AF5A65",
-    primaryMedium: "#DEBDC2",
-    primaryLight: "#E9DCDE",
-    secondaryDark: "#5A5052",
-    secondaryMedium: "#BBBBBB",
-    secondaryLight: "#DCDCDC",
-    // focusBorder: "#7a2d39",
-    focusBorder: "#91BA8D",
-  },
-}
+// const theme = {
+//   colors: {
+//     // primaryDark: "#B86B77",
+//     primaryDark: "#AF5A65",
+//     primaryMedium: "#DEBDC2",
+//     primaryLight: "#E9DCDE",
+//     secondaryDark: "#5A5052",
+//     secondaryMedium: "#BBBBBB",
+//     secondaryLight: "#DCDCDC",
+//     // focusBorder: "#7a2d39",
+//     focusBorder: "#91BA8D",
+//   },
+// }
 
 const GlobalStyles = createGlobalStyle`
+  body {
+    background-color: ${props => props.theme.colors.background};
+    color: ${props => props.theme.colors.secondaryDark};
+  }
   h1 {
     font-size: 1.75rem;
     font-weight: normal;
     line-height: 1.5;
   }
   a {
-    color: ${theme.colors.primaryDark};
+    color: ${props => props.theme.colors.primaryDark};
 
     &:hover {
-      color: ${theme.colors.secondaryDark};
+      color: ${props => props.theme.colors.secondaryDark};
     }
   }
   a:focus, button:focus {
@@ -71,16 +77,16 @@ const MenuList = styled.ul`
     }
   }
   a {
-    color: ${theme.colors.secondaryDark};
+    color: ${props => props.theme.colors.secondaryDark};
     text-decoration: none;
 
     &:hover {
-      border-bottom: 2px solid ${theme.colors.primaryDark};
-      color: ${theme.colors.primaryDark};
+      border-bottom: 2px solid ${props => props.theme.colors.primaryDark};
+      color: ${props => props.theme.colors.primaryDark};
     }
   }
   .active {
-    border-bottom: 2px solid ${theme.colors.primaryDark};
+    border-bottom: 2px solid ${props => props.theme.colors.primaryDark};
   }
 `
 
@@ -117,9 +123,13 @@ const Layout = ({ children }) => {
   //     }
   //   }
   // `)
+  const storedMode = localStorage.getItem("isDarkMode");
+  const [isDarkMode, setIsDarkMode] = useState(
+    storedMode === "true" ? true : false
+  );
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <>
         {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
         <GlobalStyles />
@@ -131,6 +141,14 @@ const Layout = ({ children }) => {
             <li><Link to="/contact" activeClassName="active">Contact</Link></li>
           </MenuList>
         </HeaderContainer>
+        <button
+            onClick={() => {
+              setIsDarkMode(!isDarkMode);
+              localStorage.setItem("isDarkMode", !isDarkMode);
+            }}
+          >
+            Toggle Dark Mode
+        </button>
         <LayoutContainer>{children}</LayoutContainer>
         <Footer>
           © {new Date().getFullYear()}. All Rights Reserved.

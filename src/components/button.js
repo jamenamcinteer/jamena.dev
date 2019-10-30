@@ -4,9 +4,9 @@ import React from "react"
 import styled from "styled-components"
 
 const StyledButton = styled.button`
-  background: ${props => props.type === "primary" ? props.theme.colors.primaryDark : "#fff"};
+  background: ${props => props.type === "primary" ? props.theme.colors.primaryDark : props.theme.colors.background};
   border: 1px solid ${props => props.theme.colors.primaryDark};
-  color: ${props => props.type === "primary" ? "#fff" : props.theme.colors.primaryDark};
+  color: ${props => props.type === "primary" ? props.theme.colors.background : props.theme.colors.primaryDark};
   cursor: pointer;
   display: inline-block;
   padding: 0.8rem 2.8rem;
@@ -15,8 +15,8 @@ const StyledButton = styled.button`
 
   &:hover,
   &:focus {
-    background: ${props => props.type === "primary" ? "#fff" : props.theme.colors.primaryDark};
-    color: ${props => props.type === "primary" ? props.theme.colors.primaryDark : "#fff"};
+    background: ${props => props.type === "primary" ? props.theme.colors.background : props.theme.colors.primaryDark};
+    color: ${props => props.type === "primary" ? props.theme.colors.primaryDark : props.theme.colors.background};
   }
 `
 
