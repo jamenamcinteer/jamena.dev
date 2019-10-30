@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 // import { Link } from "gatsby"
-import styled from "styled-components"
+import styled, { ThemeContext } from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -18,9 +18,6 @@ import Code from "../components/svg/code"
 import Performance from "../components/svg/performance"
 import Teamwork from "../components/svg/teamwork"
 import Learning from "../components/svg/learning"
-
-import lightTheme from "../themes/light"
-import darkTheme from "../themes/dark"
 
 const Splash = styled.div`
   margin-top: 4rem;
@@ -146,23 +143,25 @@ const SocialMediaLink = styled.a`
   }
 `
 
-const IndexPage = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [theme, setTheme] = useState(isDarkMode ? darkTheme : lightTheme)
-  useEffect(() => {
-    const storedMode = localStorage.getItem("isDarkMode");
-    console.log(storedMode)
-    if(storedMode === "true") {
-      setIsDarkMode(true)
-      setTheme(darkTheme)
-    }
-    else {
-      setIsDarkMode(false)
-      setTheme(lightTheme)
-    }
-  })
+const IndexPage = (props) => {
+  const themeContext = useContext(ThemeContext)
+  console.log(themeContext)
+
+  // const [isDarkMode, setIsDarkMode] = useState(false);
+  // const [theme, setTheme] = useState(isDarkMode ? darkTheme : lightTheme)
+  // useEffect(() => {
+  //   const storedMode = localStorage.getItem("isDarkMode");
+  //   if(storedMode === "true") {
+  //     setIsDarkMode(true)
+  //     setTheme(darkTheme)
+  //   }
+  //   else {
+  //     setIsDarkMode(false)
+  //     setTheme(lightTheme)
+  //   }
+  // })
   return (
-    <Layout>
+    <div>
       <SEO title="Home" />
       <Splash>
         <SplashLeft>
@@ -200,27 +199,27 @@ const IndexPage = () => {
         <PageSectionHeader>I care deeply about...</PageSectionHeader>
         <IconGrid>
           <Icon>
-            <Sketch c1={theme.colors.svgIcons} />
+            <Sketch c1={themeContext.colors.svgIcons} />
             <p>Beautiful, functional user experiences</p>
           </Icon>
           <Icon>
-            <Accessibility c1={theme.colors.svgIcons} />
+            <Accessibility c1={themeContext.colors.svgIcons} />
             <p>Accessibility and inclusion</p>
           </Icon>
           <Icon>
-            <Code c1={theme.colors.svgIcons} />
+            <Code c1={themeContext.colors.svgIcons} />
             <p>Clear, efficient code</p>
           </Icon>
           <Icon>
-            <Performance c1={theme.colors.svgIcons} />
+            <Performance c1={themeContext.colors.svgIcons} />
             <p>Security and performance</p>
           </Icon>
           <Icon>
-            <Teamwork c1={theme.colors.svgIcons} />
+            <Teamwork c1={themeContext.colors.svgIcons} />
             <p>Teamwork and communication</p>
           </Icon>
           <Icon>
-            <Learning c1={theme.colors.svgIcons} />
+            <Learning c1={themeContext.colors.svgIcons} />
             <p>Lifelong learning</p>
           </Icon>
         </IconGrid>
@@ -229,24 +228,24 @@ const IndexPage = () => {
       <Links socialmedia>
         <SocialLinkContainer>
           <SocialMediaLink href="https://twitter.com/JamenaMcinteer">
-            <Twitter c1={theme.colors.svgIcons} />
+            <Twitter c1={themeContext.colors.svgIcons} />
             <span>Twitter</span>
           </SocialMediaLink>
         </SocialLinkContainer>
         <SocialLinkContainer>
           <SocialMediaLink href="https://github.com/jamenamcinteer">
-            <Github c1={theme.colors.svgIcons} />
+            <Github c1={themeContext.colors.svgIcons} />
             <span>GitHub</span>
           </SocialMediaLink>
         </SocialLinkContainer>
         <SocialLinkContainer>
           <SocialMediaLink href="https://www.linkedin.com/in/jamena-mcinteer-5511aa45/">
-            <Linkedin c1={theme.colors.svgIcons} />
+            <Linkedin c1={themeContext.colors.svgIcons} />
             <span>LinkedIn</span>
           </SocialMediaLink>
         </SocialLinkContainer>
       </Links>
-    </Layout>
+    </div>
   )
 }
 

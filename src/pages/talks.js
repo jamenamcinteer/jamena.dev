@@ -64,7 +64,7 @@ const SocialMediaLink = styled.a`
 
 const TalksPage = () => {
   return (
-    <Layout>
+    <div>
       <SEO title="Talks" />
 
       <PageSection>
@@ -121,7 +121,7 @@ const TalksPage = () => {
           </SocialMediaLink>
         </SocialLinkContainer>
       </Links>
-    </Layout>
+    </div>
   )
 }
 
