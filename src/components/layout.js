@@ -12,25 +12,14 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import { ThemeProvider, createGlobalStyle } from "styled-components"
 import Button from "./button"
+import Twitter from "../components/svg/twitter"
+import Github from "../components/svg/github"
+import Linkedin from "../components/svg/linkedin"
 
 // import Header from "./header"
 import "./layout.css"
 import lightTheme from "../themes/light"
 import darkTheme from "../themes/dark"
-
-// const theme = {
-//   colors: {
-//     // primaryDark: "#B86B77",
-//     primaryDark: "#AF5A65",
-//     primaryMedium: "#DEBDC2",
-//     primaryLight: "#E9DCDE",
-//     secondaryDark: "#5A5052",
-//     secondaryMedium: "#BBBBBB",
-//     secondaryLight: "#DCDCDC",
-//     // focusBorder: "#7a2d39",
-//     focusBorder: "#91BA8D",
-//   },
-// }
 
 const GlobalStyles = createGlobalStyle`
   body {
@@ -106,6 +95,49 @@ const LayoutContainer = styled.main`
   }
 `
 
+const Links = styled.div`
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  text-align: ${props => (props.socialmedia ? "center" : "left")};
+
+  @media (min-width: 1024px) {
+    padding-top: ${props => (props.socialmedia ? "2rem" : "1rem")};
+    margin-left: ${props => (props.socialmedia ? "-0.625rem" : 0)};
+  }
+`
+
+const SocialLinkContainer = styled.div`
+  text-align: center;
+
+  @media (min-width: 1024px) {
+    display: inline;
+    padding-right: 2rem;
+  }
+`
+
+const SocialMediaLink = styled.a`
+  align-items: center;
+  display: inline-flex;
+  padding: 0.625rem;
+  color: ${props => props.theme.colors.primaryDark};
+
+  span {
+    /* color: ${props => props.theme.colors.primaryDark}; */
+    margin-left: 0.625rem;
+    text-decoration: underline;
+  }
+
+  &:hover,
+  &:focus {
+    background: ${props => props.theme.colors.primaryDark};
+    color: #fff;
+
+    svg path {
+      fill: #fff;
+    }
+  }
+`
+
 const Footer = styled.footer`
   background: ${props => props.theme.colors.primaryLight};
   padding: 1.0875rem;
@@ -132,9 +164,10 @@ const Layout = ({children}) => {
   const [isDarkMode, setIsDarkMode] = useState(
     storedMode === "true" ? true : false
   );
+  const theme = isDarkMode ? darkTheme : lightTheme
 
   return (
-    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+    <ThemeProvider theme={theme}>
       <>
         {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
         <GlobalStyles />
@@ -149,7 +182,6 @@ const Layout = ({children}) => {
             onClick={() => {
               setIsDarkMode(!isDarkMode);
               localStorage.setItem("isDarkMode", !isDarkMode);
-              console.log('clicked')
             }}
             type="secondary"
             compact={true}
@@ -157,6 +189,26 @@ const Layout = ({children}) => {
           />
         </HeaderContainer>
         <LayoutContainer>{children}</LayoutContainer>
+        <Links socialmedia>
+          <SocialLinkContainer>
+            <SocialMediaLink href="https://twitter.com/JamenaMcinteer">
+              <Twitter c1={theme.colors.svgIcons} />
+              <span>Twitter</span>
+            </SocialMediaLink>
+          </SocialLinkContainer>
+          <SocialLinkContainer>
+            <SocialMediaLink href="https://github.com/jamenamcinteer">
+              <Github c1={theme.colors.svgIcons} />
+              <span>GitHub</span>
+            </SocialMediaLink>
+          </SocialLinkContainer>
+          <SocialLinkContainer>
+            <SocialMediaLink href="https://www.linkedin.com/in/jamena-mcinteer-5511aa45/">
+              <Linkedin c1={theme.colors.svgIcons} />
+              <span>LinkedIn</span>
+            </SocialMediaLink>
+          </SocialLinkContainer>
+        </Links>
         <Footer>
           © {new Date().getFullYear()}. All Rights Reserved.
           <br />

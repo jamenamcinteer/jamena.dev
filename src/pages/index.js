@@ -1,16 +1,11 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, { useContext } from "react"
 // import { Link } from "gatsby"
 import styled, { ThemeContext } from "styled-components"
 
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 // import CareText from "../components/careText"
 import ButtonLink from "../components/buttonLink"
 import SVG from "../images/splash.svg"
-
-import Twitter from "../components/svg/twitter"
-import Github from "../components/svg/github"
-import Linkedin from "../components/svg/linkedin"
 
 import Sketch from "../components/svg/sketch"
 import Accessibility from "../components/svg/accessibility"
@@ -111,55 +106,9 @@ const LinkContainer = styled.div`
   }
 `
 
-const SocialLinkContainer = styled.div`
-  text-align: center;
-
-  @media (min-width: 1024px) {
-    display: inline;
-    padding-right: 2rem;
-  }
-`
-
-const SocialMediaLink = styled.a`
-  align-items: center;
-  display: inline-flex;
-  padding: 0.625rem;
-  color: ${props => props.theme.colors.primaryDark};
-
-  span {
-    /* color: ${props => props.theme.colors.primaryDark}; */
-    margin-left: 0.625rem;
-    text-decoration: underline;
-  }
-
-  &:hover,
-  &:focus {
-    background: ${props => props.theme.colors.primaryDark};
-    color: #fff;
-
-    svg path {
-      fill: #fff;
-    }
-  }
-`
-
 const IndexPage = (props) => {
   const themeContext = useContext(ThemeContext)
-  console.log(themeContext)
 
-  // const [isDarkMode, setIsDarkMode] = useState(false);
-  // const [theme, setTheme] = useState(isDarkMode ? darkTheme : lightTheme)
-  // useEffect(() => {
-  //   const storedMode = localStorage.getItem("isDarkMode");
-  //   if(storedMode === "true") {
-  //     setIsDarkMode(true)
-  //     setTheme(darkTheme)
-  //   }
-  //   else {
-  //     setIsDarkMode(false)
-  //     setTheme(lightTheme)
-  //   }
-  // })
   return (
     <div>
       <SEO title="Home" />
@@ -224,27 +173,6 @@ const IndexPage = (props) => {
           </Icon>
         </IconGrid>
       </PageSection>
-      
-      <Links socialmedia>
-        <SocialLinkContainer>
-          <SocialMediaLink href="https://twitter.com/JamenaMcinteer">
-            <Twitter c1={themeContext.colors.svgIcons} />
-            <span>Twitter</span>
-          </SocialMediaLink>
-        </SocialLinkContainer>
-        <SocialLinkContainer>
-          <SocialMediaLink href="https://github.com/jamenamcinteer">
-            <Github c1={themeContext.colors.svgIcons} />
-            <span>GitHub</span>
-          </SocialMediaLink>
-        </SocialLinkContainer>
-        <SocialLinkContainer>
-          <SocialMediaLink href="https://www.linkedin.com/in/jamena-mcinteer-5511aa45/">
-            <Linkedin c1={themeContext.colors.svgIcons} />
-            <span>LinkedIn</span>
-          </SocialMediaLink>
-        </SocialLinkContainer>
-      </Links>
     </div>
   )
 }

@@ -1,7 +1,4 @@
-// import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
-import styled from "styled-components"
 
 const SVGIcon = ({ c1, c2, c3 }) => <svg width="75" height="75" viewBox="0 0 75 75" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="75" height="75" fill="none"/>
@@ -21,17 +18,5 @@ const SVGIcon = ({ c1, c2, c3 }) => <svg width="75" height="75" viewBox="0 0 75 
 <path d="M19.3548 18.1452H33.871V20.5645H19.3548V18.1452Z" fill={c1}/>
 <path d="M19.3548 22.9839H33.871V25.4032H19.3548V22.9839Z" fill={c1}/>
 </svg>
-
-
-
-// Button.propTypes = {
-//   text: PropTypes.string,
-//   type: PropTypes.string
-// }
-
-// Button.defaultProps = {
-//   text: ``,
-//   type: 'primary'
-// }
 
 export default SVGIcon
