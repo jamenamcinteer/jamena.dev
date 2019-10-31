@@ -24,6 +24,7 @@ const Input = styled.input`
   margin-bottom: 1rem;
   background-color: ${props => props.theme.colors.primaryLight};
   border: 2px solid ${props => props.theme.colors.primaryLight};
+  color: ${props => props.theme.colors.secondaryDark};
 
   &:focus {
     border: 2px solid ${props => props.theme.colors.focusBorder};
@@ -36,6 +37,7 @@ const Textarea = styled.textarea`
   margin-bottom: 1rem;
   background-color: ${props => props.theme.colors.primaryLight};
   border: 2px solid ${props => props.theme.colors.primaryLight};
+  color: ${props => props.theme.colors.secondaryDark};
 
   &:focus {
     border: 2px solid ${props => props.theme.colors.focusBorder};
