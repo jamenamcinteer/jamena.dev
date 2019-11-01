@@ -16,7 +16,7 @@ const PageSectionHeader = styled.h2`
 
 const TalksPage = () => {
   return (
-    <div>
+    <>
       <SEO title="Talks" />
 
       <PageSection>
@@ -52,7 +52,7 @@ const TalksPage = () => {
         <p>No talks currently scheduled.</p>
         <p>If you are interested in booking me to speak at your conference or meetup, please <Link to="/contact">get in touch</Link>. Thank you!</p>
       </PageSection>
-    </div>
+    </>
   )
 }
 

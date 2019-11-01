@@ -110,7 +110,7 @@ const IndexPage = (props) => {
   const themeContext = useContext(ThemeContext)
 
   return (
-    <div>
+    <>
       <SEO title="Home" />
       <Splash>
         <SplashLeft>
@@ -173,7 +173,7 @@ const IndexPage = (props) => {
           </Icon>
         </IconGrid>
       </PageSection>
-    </div>
+    </>
   )
 }
 

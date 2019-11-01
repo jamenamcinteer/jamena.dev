@@ -47,7 +47,7 @@ const Textarea = styled.textarea`
 
 const ContactPage = () => {
   return (
-    <div>
+    <>
       <SEO title="Contact" />
 
       <PageSection>
@@ -70,7 +70,7 @@ const ContactPage = () => {
         </Form>
 
       </PageSection>
-    </div>
+    </>
   )
 }
 

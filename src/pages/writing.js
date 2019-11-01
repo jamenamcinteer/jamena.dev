@@ -29,7 +29,7 @@ const ArticleList = styled.ul`
 const BlogPage = (props) => {
   const posts = props.data.allContentfulBlog.edges;
   return (
-    <div>
+    <>
       <SEO title="Writing" />
 
       <PageSection>
@@ -59,7 +59,7 @@ const BlogPage = (props) => {
           text="Read My Personal Blog"
         />
       </PageSection>
-    </div>
+    </>
   )
 }
 
