@@ -1,23 +1,18 @@
-import React from "react"
+import React, { useContext } from "react"
 // import { Link } from "gatsby"
-import styled from "styled-components"
+import styled, { ThemeContext } from "styled-components"
 
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 // import CareText from "../components/careText"
 import ButtonLink from "../components/buttonLink"
 import SVG from "../images/splash.svg"
 
-import Twitter from "../images/twitter.svg"
-import Github from "../images/github.svg"
-import Linkedin from "../images/linkedin.svg"
-
-import Sketch from "../images/sketch.svg"
-import Accessibility from "../images/accessibility.svg"
-import Code from "../images/code.svg"
-import Performance from "../images/performance.svg"
-import Teamwork from "../images/teamwork.svg"
-import Learning from "../images/learning.svg"
+import Sketch from "../components/svg/sketch"
+import Accessibility from "../components/svg/accessibility"
+import Code from "../components/svg/code"
+import Performance from "../components/svg/performance"
+import Teamwork from "../components/svg/teamwork"
+import Learning from "../components/svg/learning"
 
 const Splash = styled.div`
   margin-top: 4rem;
@@ -111,41 +106,11 @@ const LinkContainer = styled.div`
   }
 `
 
-const SocialLinkContainer = styled.div`
-  text-align: center;
+const IndexPage = (props) => {
+  const themeContext = useContext(ThemeContext)
 
-  @media (min-width: 1024px) {
-    display: inline;
-    padding-right: 2rem;
-  }
-`
-
-const SocialMediaLink = styled.a`
-  align-items: center;
-  display: inline-flex;
-  padding: 0.625rem;
-  color: ${props => props.theme.colors.primaryDark};
-
-  span {
-    /* color: ${props => props.theme.colors.primaryDark}; */
-    margin-left: 0.625rem;
-    text-decoration: underline;
-  }
-
-  &:hover,
-  &:focus {
-    background: ${props => props.theme.colors.primaryDark};
-    color: #fff;
-
-    svg path {
-      fill: #fff;
-    }
-  }
-`
-
-const IndexPage = () => {
   return (
-    <Layout>
+    <>
       <SEO title="Home" />
       <Splash>
         <SplashLeft>
@@ -183,53 +148,32 @@ const IndexPage = () => {
         <PageSectionHeader>I care deeply about...</PageSectionHeader>
         <IconGrid>
           <Icon>
-            <Sketch />
+            <Sketch c1={themeContext.colors.svgIcons} />
             <p>Beautiful, functional user experiences</p>
           </Icon>
           <Icon>
-            <Accessibility />
+            <Accessibility c1={themeContext.colors.svgIcons} />
             <p>Accessibility and inclusion</p>
           </Icon>
           <Icon>
-            <Code />
+            <Code c1={themeContext.colors.svgIcons} />
             <p>Clear, efficient code</p>
           </Icon>
           <Icon>
-            <Performance />
+            <Performance c1={themeContext.colors.svgIcons} />
             <p>Security and performance</p>
           </Icon>
           <Icon>
-            <Teamwork />
+            <Teamwork c1={themeContext.colors.svgIcons} />
             <p>Teamwork and communication</p>
           </Icon>
           <Icon>
-            <Learning />
+            <Learning c1={themeContext.colors.svgIcons} />
             <p>Lifelong learning</p>
           </Icon>
         </IconGrid>
       </PageSection>
-      
-      <Links socialmedia>
-        <SocialLinkContainer>
-          <SocialMediaLink href="https://twitter.com/JamenaMcinteer">
-            <Twitter />
-            <span>Twitter</span>
-          </SocialMediaLink>
-        </SocialLinkContainer>
-        <SocialLinkContainer>
-          <SocialMediaLink href="https://github.com/jamenamcinteer">
-            <Github />
-            <span>GitHub</span>
-          </SocialMediaLink>
-        </SocialLinkContainer>
-        <SocialLinkContainer>
-          <SocialMediaLink href="https://www.linkedin.com/in/jamena-mcinteer-5511aa45/">
-            <Linkedin />
-            <span>LinkedIn</span>
-          </SocialMediaLink>
-        </SocialLinkContainer>
-      </Links>
-    </Layout>
+    </>
   )
 }
 
