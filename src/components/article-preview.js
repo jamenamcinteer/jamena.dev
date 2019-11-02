@@ -11,15 +11,21 @@ const PreviewTitle = styled.div`
   /* margin-bottom: .5rem; */
 `
 
-export default ({ article }) => (
+export default ({ article }) => {
+  return (
   <Preview>
     <div>
       <PreviewTitle>
-        <a href={article.canonicalUrl ? article.canonicalUrl : `https://lipstickwineandheels.com/blog/${article.slug}`}>{article.title}</a>
+        <a href={article.canonicalUrl ? article.canonicalUrl : `/blog/${article.slug}`} dangerouslySetInnerHTML={{__html: article.title}}></a>
       </PreviewTitle>
       <small>
         {article.date}
       </small>
+      { article.canonicalUrl && (
+        <small>
+          {" "}|{" "}{article.canonicalUrl.match(/^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i)[1]}
+        </small>
+      )}
       {/* {article.description && (
         <div
           dangerouslySetInnerHTML={{
@@ -29,4 +35,5 @@ export default ({ article }) => (
       )} */}
     </div>
   </Preview>
-)
+  )
+}
