@@ -4,8 +4,9 @@ import React from "react"
 import styled from "styled-components"
 
 const StyledLink = styled.a`
+  background: ${props => props.type === "primary" ? props.theme.colors.primaryDark : props.theme.colors.background};
   border: 1px solid ${props => props.theme.colors.primaryDark};
-  color: ${props => props.theme.colors.primaryDark};
+  color: ${props => props.type === "primary" ? props.theme.colors.background : props.theme.colors.primaryDark};
   display: inline-block;
   padding: 0.8rem 2.8rem;
   text-decoration: none;
@@ -13,8 +14,8 @@ const StyledLink = styled.a`
 
   &:hover,
   &:focus {
-    background: ${props => props.theme.colors.primaryDark};
-    color: #fff;
+    background: ${props => props.type === "primary" ? props.theme.colors.background : props.theme.colors.primaryDark};
+    color: ${props => props.type === "primary" ? props.theme.colors.primaryDark : props.theme.colors.background};
   }
 `
 

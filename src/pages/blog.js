@@ -2,14 +2,9 @@ import React from "react"
 // import { Link } from "gatsby"
 import styled from "styled-components"
 
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ButtonLink from "../components/buttonA"
 import ArticlePreview from '../components/article-preview'
-
-import Twitter from "../images/twitter.svg"
-import Github from "../images/github.svg"
-import Linkedin from "../images/linkedin.svg"
 
 const PageSection = styled.div`
   margin: 4rem 0;
@@ -19,49 +14,6 @@ const PageSectionHeader = styled.h2`
   font-size: 1.75rem;
   font-weight: normal;
   text-align: center;
-`
-
-const Links = styled.div`
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  text-align: ${props => (props.socialmedia ? "center" : "left")};
-
-  @media (min-width: 1024px) {
-    padding-top: ${props => (props.socialmedia ? "2rem" : "1rem")};
-    margin-left: ${props => (props.socialmedia ? "-0.625rem" : 0)};
-  }
-`
-
-const SocialLinkContainer = styled.div`
-  text-align: center;
-
-  @media (min-width: 1024px) {
-    display: inline;
-    padding-right: 2rem;
-  }
-`
-
-const SocialMediaLink = styled.a`
-  align-items: center;
-  display: inline-flex;
-  padding: 0.625rem;
-  color: ${props => props.theme.colors.primaryDark};
-
-  span {
-    /* color: ${props => props.theme.colors.primaryDark}; */
-    margin-left: 0.625rem;
-    text-decoration: underline;
-  }
-
-  &:hover,
-  &:focus {
-    background: ${props => props.theme.colors.primaryDark};
-    color: #fff;
-
-    svg path {
-      fill: #fff;
-    }
-  }
 `
 
 const ArticleWrapper = styled.div`
@@ -86,7 +38,7 @@ const BlogPage = (props) => {
   let posts = props.data.allContentfulBlog.edges.concat(props.data.wordpressPost);
   posts.sort(compare)
   return (
-    <Layout>
+    <>
       <SEO title="Writing" />
 
       <PageSection>
@@ -116,28 +68,7 @@ const BlogPage = (props) => {
           text="Read My Personal Blog"
         />
       </PageSection>
-      
-      <Links socialmedia>
-        <SocialLinkContainer>
-          <SocialMediaLink href="https://twitter.com/JamenaMcinteer">
-            <Twitter />
-            <span>Twitter</span>
-          </SocialMediaLink>
-        </SocialLinkContainer>
-        <SocialLinkContainer>
-          <SocialMediaLink href="https://github.com/jamenamcinteer">
-            <Github />
-            <span>GitHub</span>
-          </SocialMediaLink>
-        </SocialLinkContainer>
-        <SocialLinkContainer>
-          <SocialMediaLink href="https://www.linkedin.com/in/jamena-mcinteer-5511aa45/">
-            <Linkedin />
-            <span>LinkedIn</span>
-          </SocialMediaLink>
-        </SocialLinkContainer>
-      </Links>
-    </Layout>
+    </>
   )
 }
 
