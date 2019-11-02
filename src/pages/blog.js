@@ -1,7 +1,7 @@
 import React from "react"
 // import { Link } from "gatsby"
 import styled from "styled-components"
-
+import { graphql } from "gatsby"
 import SEO from "../components/seo"
 import ButtonLink from "../components/buttonA"
 import ArticlePreview from '../components/article-preview'
@@ -19,11 +19,12 @@ const PageSectionHeader = styled.h2`
 const ArticleWrapper = styled.div`
   border-left: 1px solid ${props => props.theme.colors.primaryMedium};
   /* margin-left: -1.45rem; */
-  padding-left: 1.45rem;
+  /* padding-left: 1.45rem; */
 `
 
 const ArticleList = styled.ul`
-  margin-left: -.635rem;
+  /* margin-left: -.635rem; */
+  list-style-type: none;
 `
 
 const BlogPage = (props) => {

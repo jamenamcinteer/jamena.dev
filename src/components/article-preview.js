@@ -13,7 +13,7 @@ const PreviewTitle = styled.div`
 `
 
 const Domain = styled.span`
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-family: 'IBM Plex Sans', Arial, Helvetica, sans-serif;
   font-size: .9rem;
 `
 
