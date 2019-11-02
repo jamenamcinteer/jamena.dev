@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import Helmet from 'react-helmet'
 import { graphql } from "gatsby"
 import readingTime from 'reading-time'
-import { DiscussionEmbed } from 'disqus-react'
+// import { DiscussionEmbed } from 'disqus-react'
 import PropTypes from "prop-types"
 import styled from "styled-components"
 
@@ -34,11 +34,11 @@ class Post extends Component {
     const content = {
       __html: post.content
     }
-    const disqusShortname = 'webdevabq'
-    const disqusConfig = {
-      identifier: post.slug,
-      title: post.title,
-    }
+    // const disqusShortname = 'webdevabq'
+    // const disqusConfig = {
+    //   identifier: post.slug,
+    //   title: post.title,
+    // }
 
     return (
       <>
@@ -56,12 +56,12 @@ class Post extends Component {
             <p>Think others might enjoy this post? Share it!</p>
             <div className="sharethis-inline-share-buttons" />
 
-            <h2>Comments</h2>
+            {/* <h2>Comments</h2>
             <p>I'd love to hear from you, let me know your thoughts!</p>
             <DiscussionEmbed
               shortname={disqusShortname}
               config={disqusConfig}
-            />
+            /> */}
           </Article>
         </PageSection>
       </>
