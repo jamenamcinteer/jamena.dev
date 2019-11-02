@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from "styled-components"
+import { Link } from "gatsby"
 
 const Preview = styled.div`
   margin-top: 1rem;
@@ -11,15 +12,26 @@ const PreviewTitle = styled.div`
   /* margin-bottom: .5rem; */
 `
 
-export default ({ article }) => (
+const Domain = styled.span`
+  font-family: 'IBM Plex Sans', Arial, Helvetica, sans-serif;
+  font-size: .9rem;
+`
+
+export default ({ article }) => {
+  return (
   <Preview>
     <div>
       <PreviewTitle>
-        <a href={article.canonicalUrl ? article.canonicalUrl : `https://lipstickwineandheels.com/blog/${article.slug}`}>{article.title}</a>
+        {article.canonicalUrl ? <a href={article.canonicalUrl}>{article.title}</a> : <Link to={`/blog/${article.slug}`} dangerouslySetInnerHTML={{__html: article.title}}></Link>}
       </PreviewTitle>
       <small>
         {article.date}
       </small>
+      { article.canonicalUrl && (
+        <Domain>
+          {" "}&bull;{" "}{article.canonicalUrl.match(/^https?:\/\/([^/?#]+)(?:[/?#]|$)/i)[1]}
+        </Domain>
+      )}
       {/* {article.description && (
         <div
           dangerouslySetInnerHTML={{
@@ -29,4 +41,5 @@ export default ({ article }) => (
       )} */}
     </div>
   </Preview>
-)
+  )
+}

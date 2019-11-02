@@ -15,9 +15,9 @@ import Button from "./button"
 import Twitter from "../components/svg/twitter"
 import Github from "../components/svg/github"
 import Linkedin from "../components/svg/linkedin"
-
 // import Header from "./header"
 import "./layout.css"
+import "./wp-styles.css"
 import lightTheme from "../themes/light"
 import darkTheme from "../themes/dark"
 
@@ -186,7 +186,7 @@ const Layout = ({children}) => {
         <HeaderContainer>
           <MenuList>
             <li><Link to="/" activeClassName="active">Home</Link></li>
-            <li><Link to="/writing" activeClassName="active">Writing</Link></li>
+            <li><Link to="/blog" activeClassName="active" partiallyActive={true}>Writing</Link></li>
             <li><Link to="/talks" activeClassName="active">Talks</Link></li>
             <li><Link to="/contact" activeClassName="active">Contact</Link></li>
           </MenuList>

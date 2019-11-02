@@ -128,7 +128,7 @@ const IndexPage = (props) => {
           <Links>
             <LinkContainer>
               <ButtonLink
-                to="/writing"
+                to="/blog"
                 text="Read My Blog"
               />
             </LinkContainer>
