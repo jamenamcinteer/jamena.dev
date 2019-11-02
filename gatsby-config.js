@@ -39,7 +39,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`Montserrat`],
+        fonts: [`Montserrat`, `IBM Plex Sans`],
         display: "swap",
       },
     },
@@ -51,6 +51,24 @@ module.exports = {
           include: /images/,
         },
       },
+    },
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        // your WordPress source
+        baseUrl: `jamena.home.blog`,
+        protocol: `https`,
+        // is it hosted on wordpress.com, or self-hosted?
+        hostingWPCOM: true,
+        // does your site use the Advanced Custom Fields Plugin?
+        useACF: false,
+        // auth: {
+        //   wpcom_app_clientSecret: process.env.WORDPRESS_CLIENT_SECRET,
+        //   wpcom_app_clientId: "54793",
+        //   wpcom_user: "ndjamenamarmon@gmail.com",
+        //   wpcom_pass: process.env.WORDPRESS_PASSWORD,
+        // }
+      }
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
