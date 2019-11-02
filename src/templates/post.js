@@ -2,7 +2,6 @@ import React, { Component } from "react"
 import { graphql } from "gatsby"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import Layout from "../components/layout"
 
 const PageSection = styled.div`
   margin: 4rem 0;
@@ -25,12 +24,12 @@ class Post extends Component {
     }
 
     return (
-      <Layout>
+      <>
         <PageSection>
           <ArticleHeader dangerouslySetInnerHTML={title}></ArticleHeader>
           <Article dangerouslySetInnerHTML={content}></Article>
         </PageSection>
-      </Layout>
+      </>
     )
   }
 }
