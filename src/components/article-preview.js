@@ -29,7 +29,7 @@ export default ({ article }) => {
       </small>
       { article.canonicalUrl && (
         <Domain>
-          {" "}&bull;{" "}{article.canonicalUrl.match(/^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i)[1]}
+          {" "}&bull;{" "}{article.canonicalUrl.match(/^https?:\/\/([^/?#]+)(?:[/?#]|$)/i)[1]}
         </Domain>
       )}
       {/* {article.description && (
