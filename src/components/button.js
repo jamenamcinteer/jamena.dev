@@ -20,18 +20,22 @@ const StyledButton = styled.button`
   }
 `
 
-const Button = ({ text, type, compact, onClick }) => <StyledButton type={type} compact={compact} onClick={onClick}>{text}</StyledButton>
+const Button = ({ text, type, compact, ariaLabel, onClick }) => <StyledButton type={type} compact={compact} onClick={onClick} aria-label={ariaLabel}>{text}</StyledButton>
 
 Button.propTypes = {
   text: PropTypes.string,
   type: PropTypes.string,
-  compact: PropTypes.bool
+  compact: PropTypes.bool,
+  ariaLabel: PropTypes.string,
+  onClick: PropTypes.func.isRequired
 }
 
 Button.defaultProps = {
   text: ``,
   type: 'primary',
-  compact: false
+  compact: false,
+  ariaLabel: null,
+  onClick: () => {}
 }
 
 export default Button
