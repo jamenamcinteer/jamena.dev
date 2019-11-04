@@ -197,7 +197,8 @@ const Layout = ({children}) => {
             }}
             type="secondary"
             compact={true}
-            text={isDarkMode ? "Light Mode" : "Dark Mode"}
+            text={isDarkMode ? "☀ Light Mode" : "☾ Dark Mode"}
+            ariaLabel={`Switch to ${isDarkMode ? "Light Mode" : "Dark Mode"}`}
           />
         </HeaderContainer>
         <LayoutContainer>{children}</LayoutContainer>
