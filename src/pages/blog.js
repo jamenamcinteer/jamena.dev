@@ -36,7 +36,7 @@ const BlogPage = (props) => {
     return 0
   }
 
-  let posts = props.data.allContentfulBlog.edges.concat(props.data.wordpressPost);
+  let posts = props.data.allContentfulBlog.edges.concat(props.data.allWordpressPost.edges);
   posts.sort(compare)
   return (
     <>
@@ -94,10 +94,14 @@ export const pageQuery = graphql`
         }
       }
     }
-    wordpressPost {
-      title
-      slug
-      date(formatString: "MMMM D, YYYY")
+    allWordpressPost {
+      edges {
+        node {
+          title
+          slug
+          date(formatString: "MMMM D, YYYY")
+        }
+      }
     }
   }
 `
