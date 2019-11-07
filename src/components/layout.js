@@ -16,6 +16,8 @@ import Twitter from "../components/svg/twitter"
 import Github from "../components/svg/github"
 import Linkedin from "../components/svg/linkedin"
 // import Header from "./header"
+import HeaderImageLight from "./images/HeaderImageLight"
+import HeaderImageDark from "./images/HeaderImageDark"
 import "./layout.css"
 import "./wp-styles.css"
 import lightTheme from "../themes/light"
@@ -46,20 +48,56 @@ const GlobalStyles = createGlobalStyle`
 const HeaderContainer = styled.header`
   max-width: 960px;
   margin: 0 auto;
+  margin-top: 1.2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 0 1.0875rem;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     flex-direction: row;
     justify-content: space-between;
-  }
-  @media (min-width: 1024px) {
     padding-left: 0;
     padding-right: 0;
   }
+`
+
+const ThemeSwitcher = styled.div`
+  margin-left: 1.2rem;
+  min-width: 8rem;
+`
+
+const HeaderTitleContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (min-width: 1024px) {
+    justify-content: flex-start;
+  }
+`
+const HeaderImage = styled.div`
+  width: 50px;
+  border-radius: 100px;
+
+  img {
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');
+    mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');
+    mask-mode: alpha;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-position: center;
+    mask-position: center;
+    border-radius: 9999px;
+  }
+`
+const HeaderTitle = styled.div`
+  font-size: 1.2rem;
+  margin-left: 1.2rem;
 `
 
 const MenuList = styled.ul`
@@ -184,22 +222,28 @@ const Layout = ({children}) => {
         {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
         <GlobalStyles />
         <HeaderContainer>
+          <HeaderTitleContainer>
+            <HeaderImage>{isDarkMode ? <HeaderImageDark /> : <HeaderImageLight />}</HeaderImage>
+            <HeaderTitle>Jamena McInteer</HeaderTitle>
+          </HeaderTitleContainer>
           <MenuList>
             <li><Link to="/" activeClassName="active">Home</Link></li>
             <li><Link to="/blog" activeClassName="active" partiallyActive={true}>Writing</Link></li>
             <li><Link to="/talks" activeClassName="active">Talks</Link></li>
             <li><Link to="/contact" activeClassName="active">Contact</Link></li>
           </MenuList>
-          <Button
-            onClick={() => {
-              setIsDarkMode(!isDarkMode);
-              localStorage.setItem("isDarkMode", !isDarkMode);
-            }}
-            type="secondary"
-            compact={true}
-            text={isDarkMode ? "☀ Light Mode" : "☾ Dark Mode"}
-            ariaLabel={`Switch to ${isDarkMode ? "Light Mode" : "Dark Mode"}`}
-          />
+          <ThemeSwitcher>
+            <Button
+              onClick={() => {
+                setIsDarkMode(!isDarkMode);
+                localStorage.setItem("isDarkMode", !isDarkMode);
+              }}
+              type="secondary"
+              compact={true}
+              text={isDarkMode ? "☀ Light Mode" : "☾ Dark Mode"}
+              ariaLabel={`Switch to ${isDarkMode ? "Light Mode" : "Dark Mode"}`}
+            />
+          </ThemeSwitcher>
         </HeaderContainer>
         <LayoutContainer>{children}</LayoutContainer>
         <Links socialmedia>
