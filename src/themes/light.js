@@ -1,4 +1,5 @@
 export default {
+  theme: "light",
   colors: {
     // primaryDark: "#B86B77",
     background: "#FFFFFF",
