@@ -61,6 +61,11 @@ const HeaderContainer = styled.header`
     padding-left: 0;
     padding-right: 0;
   }
+
+  a {
+    color: ${props => props.theme.colors.secondaryDark};
+    text-decoration: none;
+  }
 `
 
 const ThemeSwitcher = styled.div`
@@ -222,14 +227,16 @@ const Layout = ({children}) => {
         {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
         <GlobalStyles />
         <HeaderContainer>
-          <HeaderTitleContainer>
-            <HeaderImage>{isDarkMode ? <HeaderImageDark /> : <HeaderImageLight />}</HeaderImage>
-            <HeaderTitle>Jamena McInteer</HeaderTitle>
-          </HeaderTitleContainer>
+          <Link to="/">
+            <HeaderTitleContainer>
+              <HeaderImage>{isDarkMode ? <HeaderImageDark /> : <HeaderImageLight />}</HeaderImage>
+              <HeaderTitle>Jamena McInteer</HeaderTitle>
+            </HeaderTitleContainer>
+          </Link>
           <MenuList>
-            <li><Link to="/" activeClassName="active">Home</Link></li>
             <li><Link to="/blog" activeClassName="active" partiallyActive={true}>Writing</Link></li>
             <li><Link to="/talks" activeClassName="active">Talks</Link></li>
+            <li><Link to="/learning" activeClassName="active">Learning</Link></li>
             <li><Link to="/contact" activeClassName="active">Contact</Link></li>
           </MenuList>
           <ThemeSwitcher>

@@ -1,0 +1,36 @@
+.node circle,
+.inprogress-node circle {
+	/* fill: rgb(247, 106, 214);
+  stroke: rgb(184, 37, 81); */
+  fill: rgb(95, 213, 62);
+	stroke: rgb(49, 136, 24);
+	stroke-width: 1.5px;
+}
+
+.inprogress-node circle {
+  fill: rgb(247, 179, 106);
+  stroke: rgb(194, 128, 57);
+}
+
+.node text,
+.inprogress-node text {
+	font-size: 11px;
+	font-family: 'IBM Plex Sans',Arial,Helvetica,sans-serif;
+	/* background-color: red; */
+  fill: rgb(90, 80, 82);
+}
+
+.dark .node text,
+.dark .inprogress-node text {
+  fill: white;
+}
+
+.node, .inprogress-node {
+	cursor: pointer;
+}
+
+path.link {
+	fill: none;
+	stroke: #2593B8;
+	stroke-width: 1.5px;
+}
