@@ -20,6 +20,29 @@ const TalksPage = () => {
       <SEO title="Talks" />
 
       <PageSection>
+        <PageSectionHeader>Upcoming Talks</PageSectionHeader>
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Event</th>
+              <th>Date</th>
+              <th>City</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>The State of CSS in Vue</td>
+              <td><a href="https://vueconf.us/">VueConf US</a></td>
+              <td>March 2020</td>
+              <td>Austin, TX</td>
+            </tr>
+          </tbody>
+        </table>
+        {/* <p>No talks currently scheduled.</p> */}
+      </PageSection>
+
+      <PageSection>
         <PageSectionHeader>Past Talks</PageSectionHeader>
         <table>
           <thead>
@@ -48,8 +71,6 @@ const TalksPage = () => {
       </PageSection>
 
       <PageSection>
-        <PageSectionHeader>Upcoming Talks</PageSectionHeader>
-        <p>No talks currently scheduled.</p>
         <p>If you are interested in booking me to speak at your conference or meetup, please <Link to="/contact">get in touch</Link>. Thank you!</p>
       </PageSection>
     </>
