@@ -32,9 +32,9 @@ const TalksPage = () => {
           </thead>
           <tbody>
             <tr>
-              <td>The State of CSS in Vue</td>
+              <td><a href="https://github.com/jamenamcinteer/the-state-of-css-in-vue">The State of CSS in Vue</a></td>
               <td><a href="https://vueconf.us/">VueConf US</a></td>
-              <td>March 2020</td>
+              <td>March 3, 2020</td>
               <td>Austin, TX</td>
             </tr>
           </tbody>
