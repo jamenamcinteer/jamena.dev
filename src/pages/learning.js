@@ -48,7 +48,7 @@ const LearningPage = () => {
                 textProps: {x: -20, y: 25},
                 children: [
                   {
-                    name: 'Tech Interview Prep',
+                    name: 'TypeScript',
                     textProps: {x: -25, y: 25},
                     gProps: {
                       className: 'inprogress-node',
@@ -72,32 +72,12 @@ const LearningPage = () => {
                             },
                             children: [
                               {
-                                name: 'TypeScript',
+                                name: 'Python',
                                 textProps: {x: -20, y: 25},
                                 gProps: {
                                   className: 'inprogress-node',
                                   onClick: onClick
-                                },
-                                children: [
-                                  {
-                                    name: 'React Native',
-                                    textProps: {x: -20, y: 25},
-                                    gProps: {
-                                      className: 'inprogress-node',
-                                      onClick: onClick
-                                    },
-                                    children: [
-                                      {
-                                        name: 'Python',
-                                        textProps: {x: -20, y: 25},
-                                        gProps: {
-                                          className: 'inprogress-node',
-                                          onClick: onClick
-                                        }
-                                      }
-                                    ]
-                                  }
-                                ]
+                                }
                               }
                             ]
                           }
@@ -128,6 +108,14 @@ const LearningPage = () => {
                         }
                       }
                     ]
+                  },
+                  {
+                    name: 'React Native',
+                    textProps: {x: -25, y: 25},
+                    gProps: {
+                      className: 'inprogress-node',
+                      onClick: onClick
+                    },
                   }
                 ]
               },

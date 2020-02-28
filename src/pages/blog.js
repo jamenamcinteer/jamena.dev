@@ -28,6 +28,32 @@ const ArticleList = styled.ul`
 `
 
 const BlogPage = (props) => {
+  let devPosts = props.data.allDevArticles.edges
+  let newDevPosts = []
+  devPosts.map(devPost => {
+    const newDevPost = {
+      title: devPost.node.article.title,
+      slug: devPost.node.article.slug,
+      date: devPost.node.article.published_at,
+      site: "dev.to"
+    }
+    newDevPosts.push({node: newDevPost})
+    return devPost
+  })
+
+  let wpPosts = props.data.allWordpressPost.edges
+  let newWpPosts = []
+  wpPosts.map(wpPost => {
+    const newWpPost = {
+      title: wpPost.node.title,
+      slug: wpPost.node.slug,
+      date: wpPost.node.date,
+      site: "wordpress"
+    }
+    newWpPosts.push({node: newWpPost})
+    return wpPost
+  })
+  
   function compare(a, b) {
     if(a.node) a = a.node
     if(b.node) b = b.node
@@ -36,7 +62,8 @@ const BlogPage = (props) => {
     return 0
   }
 
-  let posts = props.data.allContentfulBlog.edges.concat(props.data.allWordpressPost.edges);
+  let posts = props.data.allContentfulBlog.edges.concat(newWpPosts);
+  posts = posts.concat(newDevPosts);
   posts.sort(compare)
   return (
     <>
@@ -47,11 +74,11 @@ const BlogPage = (props) => {
         <PageSectionHeader>Tech Articles</PageSectionHeader>
         <ArticleWrapper className="wrapper">
             <ArticleList className="article-list">
-              {posts.map(node => {
+              {posts.map((node, index) => {
                 node = node.node ? node.node : node
                 if (new Date() >= new Date(node.date)) {
                   return (
-                    <li key={node.slug}>
+                    <li key={index}>
                       <ArticlePreview article={node} />
                     </li>
                   )
@@ -100,6 +127,17 @@ export const pageQuery = graphql`
           title
           slug
           date(formatString: "MMMM D, YYYY")
+        }
+      }
+    }
+    allDevArticles {
+      edges {
+        node {
+          article {
+            title
+            slug
+            published_at(formatString: "MMMM D, YYYY")
+          }
         }
       }
     }
