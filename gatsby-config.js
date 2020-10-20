@@ -11,7 +11,8 @@ module.exports = {
         spaceId: `pzup941z9qmd`,
         // Learn about environment variables: https://gatsby.dev/env-vars
         // accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        accessToken: '26e4a3544a46ed09a40332a7f4b0e0cc34b8ddea68905f3e40fddeafc5ac4f72'
+        accessToken:
+          "26e4a3544a46ed09a40332a7f4b0e0cc34b8ddea68905f3e40fddeafc5ac4f72",
       },
     },
     `gatsby-plugin-react-helmet`,
@@ -53,30 +54,12 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-wordpress`,
-      options: {
-        // your WordPress source
-        baseUrl: `jamena.home.blog`,
-        protocol: `https`,
-        // is it hosted on wordpress.com, or self-hosted?
-        hostingWPCOM: true,
-        // does your site use the Advanced Custom Fields Plugin?
-        useACF: false,
-        // auth: {
-        //   wpcom_app_clientSecret: process.env.WORDPRESS_CLIENT_SECRET,
-        //   wpcom_app_clientId: "54793",
-        //   wpcom_user: "ndjamenamarmon@gmail.com",
-        //   wpcom_pass: process.env.WORDPRESS_PASSWORD,
-        // }
-      }
-    },
-    {
       resolve: "gatsby-source-dev",
       options: {
         // This is your username on Dev.to
-        username: 'jamenamcinteer'
-      }
-    }
+        username: "jamenamcinteer",
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
